@@ -9,7 +9,7 @@ const { height } = Dimensions.get('window');
 class Header extends Component {
     state = {}
     render() {
-        const { wrapper, row1, textInput } = styles;
+        const { wrapper, row1, textInput, iconStyle, titleStyle } = styles;
         return (
             <View style={wrapper}>
                 <View style={row1}>
@@ -17,12 +17,14 @@ class Header extends Component {
                     onPress={() => { this.props.navigation.navigate('DrawerOpen') }
                     }
                 >
-                    <Image source={icMenu} />
+                    <Image source={icMenu} style={iconStyle}/>
                 </TouchableOpacity>
-                <Text> LifePlus Demo </Text>
-                <Image source={icLogo} />
+                <Text style={titleStyle}> LifePlus Demo </Text>
+                <Image source={icLogo} style={iconStyle}/>
                 </View>
-                <TextInput style={textInput}/>
+                <TextInput style={textInput}
+                
+                />
             </View>
         );
     }
@@ -33,7 +35,9 @@ Header.propTypes = {
 export default Header;
 
 const styles = StyleSheet.create({
-    wrapper: {height: height / 10, backgroundColor: '#FA5882',},
+    wrapper: {height: height / 8, backgroundColor: '#FA5882', padding: 5, justifyContent: 'space-around', },
     row1: {flexDirection: 'row', justifyContent: 'space-between' },
-    textInput: {height: height / 20, backgroundColor: '#FFF'}
+    textInput: {height: height / 24, backgroundColor: '#FFF'},
+    titleStyle:{ color: '#FFF', fontFamily:'Avenir', fontSize: 20},
+    iconStyle: {width: 25, height: 25 }
 });
