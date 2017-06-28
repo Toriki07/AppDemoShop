@@ -13,17 +13,17 @@ class Header extends Component {
         return (
             <View style={wrapper}>
                 <View style={row1}>
-                <TouchableOpacity
-                    onPress={() => { this.props.navigation.navigate('DrawerOpen') }
-                    }
-                >
-                    <Image source={icMenu} style={iconStyle}/>
-                </TouchableOpacity>
-                <Text style={titleStyle}> LifePlus Demo </Text>
-                <Image source={icLogo} style={iconStyle}/>
+                    <TouchableOpacity
+                        onPress={() => { this.props.navigation.navigate('DrawerOpen') }
+                        }
+                    >
+                        <Image source={icMenu} style={iconStyle} />
+                    </TouchableOpacity>
+                    <Text style={titleStyle}> LifePlus Demo </Text>
+                    <Image source={icLogo} style={iconStyle} />
                 </View>
                 <TextInput style={textInput}
-                
+
                 />
             </View>
         );
@@ -35,9 +35,13 @@ Header.propTypes = {
 export default Header;
 
 const styles = StyleSheet.create({
-    wrapper: {height: height / 8, backgroundColor: '#FA5882', padding: 5, justifyContent: 'space-around', },
-    row1: {flexDirection: 'row', justifyContent: 'space-between' },
-    textInput: {height: height / 24, backgroundColor: '#FFF'},
-    titleStyle:{ color: '#FFF', fontFamily:'Avenir', fontSize: 20},
-    iconStyle: {width: 25, height: 25 }
+    wrapper: { 
+        height: height / 8, 
+        backgroundColor: '#FA5882', 
+        padding: 5, 
+        justifyContent: 'space-around', },
+    row1: { flexDirection: 'row', justifyContent: 'space-between' },
+    textInput: { height: height / 24, backgroundColor: '#FFF' },
+    titleStyle: { color: '#FFF', fontFamily: 'Avenir', fontSize: 20 },
+    iconStyle: { width: 25, height: 25 }
 });

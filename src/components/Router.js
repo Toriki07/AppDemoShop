@@ -4,7 +4,8 @@ import {
     StyleSheet,
     Text,
     View,
-    ScrollView
+    ScrollView,
+    Image,
 } from 'react-native';
 
 import Authentication from './Authentication/Authentication';
@@ -18,6 +19,17 @@ import Home from './Main/Shop/Home/Home';
 import Search from './Main/Shop/Search/Search';
 import Contact from './Main/Shop/Contact/Contact';
 
+//import media
+import homeIconS from '../media/appIcon/home.png';
+import homeIcon from '../media/appIcon/home0.png';
+import cartIconS from '../media/appIcon/cart.png' ;
+import cartIcon from '../media/appIcon/cart0.png' ;
+import searchIconS from '../media/appIcon/search.png';
+import searchIcon from '../media/appIcon/search0.png';
+import contactIconS from '../media/appIcon/contact.png';
+import contactIcon from '../media/appIcon/contact0.png';
+
+//-----------
 export const MenuStack = DrawerNavigator({
     Screen_Menu: {
         screen: Menu,
@@ -88,26 +100,50 @@ export const ShopTabs = TabNavigator({
   Home: {
     screen: HomeStack,
     navigationOptions: {
-      tabBarLabel: 'HOME'
+      tabBarLabel: 'Home',
+      tabBarIcon: ({ tintColor }) => (
+                <Image
+                    source={require('../media/appIcon/home.png')}
+                    style={[styles.icon, { tintColor: tintColor }]}
+                />
+            ),
     }
   },
   Cart: {
     screen: CartStack,
     navigationOptions: {
-      tabBarLabel: 'Cart'
+      tabBarLabel: 'Cart',
+      tabBarIcon: ({ tintColor }) => (
+                <Image
+                    source={require('../media/appIcon/cart.png')}
+                    style={[styles.icon, { tintColor: tintColor }]}
+                />
+            ),
     }
   },
   SearchStack: {
     screen: SearchStack,
     navigationOptions: {
-      tabBarLabel: 'SearchStack'
+      tabBarLabel: 'Search',
+      tabBarIcon: ({ tintColor }) => (
+                <Image
+                    source={require('../media/appIcon/search.png')}
+                    style={[styles.icon, { tintColor: tintColor }]}
+                />
+            ),
     }
   },
      
   Contact: {
     screen: ContactStack,
     navigationOptions: {
-      tabBarLabel: 'Contact'
+      tabBarLabel: 'Contact',
+      tabBarIcon: ({ tintColor }) => (
+                <Image
+                    source={require('../media/appIcon/contact.png')}
+                    style={[styles.icon, { tintColor: tintColor }]}
+                />
+            ),
     }
   },
 },
@@ -119,7 +155,7 @@ export const ShopTabs = TabNavigator({
         backgroundColor: '#BDBDBD',
       },
       inactiveTintColor: 'green',
-      activeTintColor: 'red'
+      activeTintColor: 'pink'
 
     },
 
@@ -137,3 +173,9 @@ export const SideMenu = DrawerNavigator(
     contentComponent: props => <ScrollView><MenuStack  /></ScrollView>
   }
 );
+const styles = {
+    icon: {
+        width: 32,
+        height: 32
+    }
+}
