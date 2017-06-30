@@ -1,35 +1,33 @@
 import React, { Component } from 'react';
-import { View, Text , TouchableOpacity,} from 'react-native';
+import { View, Text , TouchableOpacity, StyleSheet, Image} from 'react-native';
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
 
 import Authentication from '../Authentication/Authentication';
 import ChangeInfo from '../ChangeInfo/ChangeInfo';
 import OrderHistory from '../OrderHistory/OrderHistory';
 
+import profileIcon from '../../media/temp/profile.png';
 
-export default class Menu extends Component {
+const Menu = ({navigation}) => {
     state = {}
-    render() {
+
+        const {container, imageProfile, } = styles;
         return (
-            <View style={{ flex: 1, backgroundColor: '#2EFEF7' }}>
-                <View >
-                    <Text> TopBar </Text>
-                </View>
+            <View style={container}>
+                <Image source = {profileIcon} style = {imageProfile}/>
+            
                 <TouchableOpacity style={{ backgroundColor: '#FF8000' }}
-                    onPress={() => { this.props.navigation.navigate('Screen_Authentication') }
-                    }
+                    onPress={() => navigation.navigate('Screen_Authentication') }
                 >
                     <Text style={{ color: 'white', fontSize: 20, padding: 10 }}>Go to Authentication</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{ backgroundColor: '#FF8000' }}
-                    onPress={() => { this.props.navigation.navigate('Screen_ChangeInfo') }
-                    }
+                    onPress={() => navigation.navigate('Screen_ChangeInfo') }
                 >
                     <Text style={{ color: 'white', fontSize: 20, padding: 10 }}>Go to Change Info</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{ backgroundColor: '#FF8000' }}
-                    onPress={() => { this.props.navigation.navigate('Screen_OrderHistory') }
-                    }
+                    onPress={() => navigation.navigate('Screen_OrderHistory') }
                 >
                     <Text style={{ color: 'white', fontSize: 20, padding: 10 }}>Go to Order History</Text>
                 </TouchableOpacity>
@@ -37,6 +35,23 @@ export default class Menu extends Component {
             </View>
 
         );
-    }
+    
 }
 
+const styles = StyleSheet.create({
+    container:{
+        flex: 1, 
+        backgroundColor: '#FA5882',
+        borderRightWidth: 3,
+        borderColor: '#FFF',
+        alignItems: 'center',
+
+    },
+    imageProfile:{
+        width: 150,
+        height: 150,
+        borderRadius: 75,
+    },
+});
+
+export default Menu;

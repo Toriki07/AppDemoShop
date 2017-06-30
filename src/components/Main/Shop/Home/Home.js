@@ -21,8 +21,8 @@ static navigationOptions = ({ navigation }) => ({
     render() {
         return (
             <ScrollView style={{ flex: 1 }}>
-                {/*<Collection/>
-                <Category/>*/}
+                <Collection/>
+                <Category navigation={this.props.navigation}/>
                 <TopProduct/>
             </ScrollView>
         );

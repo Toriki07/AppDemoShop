@@ -6,15 +6,14 @@ import icMenu from '../../../../media/appIcon/ic_menu.png';
 
 const { height } = Dimensions.get('window');
 
-class Header extends Component {
+const Header = ({navigation}) =>{
     state = {}
-    render() {
         const { wrapper, row1, textInput, iconStyle, titleStyle } = styles;
         return (
             <View style={wrapper}>
                 <View style={row1}>
                     <TouchableOpacity
-                        onPress={() => { this.props.navigation.navigate('DrawerOpen') }
+                        onPress={() => navigation.navigate('DrawerOpen') 
                         }
                     >
                         <Image source={icMenu} style={iconStyle} />
@@ -27,7 +26,7 @@ class Header extends Component {
                 />
             </View>
         );
-    }
+    
 }
 Header.propTypes = {
     navigation: React.PropTypes.object.isRequired,
