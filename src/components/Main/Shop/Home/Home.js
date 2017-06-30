@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
     Text,
-    View,
+    ScrollView,
     Dimensions,
     TouchableOpacity,
 } from 'react-native';
@@ -9,6 +9,7 @@ import {
 import Header from '../Search/Header';
 import Collection from './Collection';
 import Category from './Category';
+import TopProduct from './TopProduct'
 
 export default class Home extends Component {
 static navigationOptions = ({ navigation }) => ({
@@ -19,10 +20,11 @@ static navigationOptions = ({ navigation }) => ({
     })    
     render() {
         return (
-            <View style={{ flex: 1 }}>
-                <Collection/>
-                <Category/>
-            </View>
+            <ScrollView style={{ flex: 1 }}>
+                {/*<Collection/>
+                <Category/>*/}
+                <TopProduct/>
+            </ScrollView>
         );
     }
 }
