@@ -2,15 +2,20 @@ import React, { Component } from 'react';
 import {
     Text,
     View,
+    TouchableOpacity,
 } from 'react-native';
 
-export default class Search extends Component {
+ const Search =({navigation})=> {
     state = {}
-    render() {
+
         return (
             <View>
                 <Text>Component Search</Text>
+                 <TouchableOpacity onPress={() => navigation.navigate('Screen_Detail')}>
+
+                    <Text> go to Detail</Text>
+                </TouchableOpacity>
             </View>
         );
-    }
 }
+export default Search;

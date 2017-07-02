@@ -2,15 +2,20 @@ import React, { Component } from 'react';
 import {
     Text,
     View,
+    TouchableOpacity,
 } from 'react-native';
 
-export default class Cart extends Component {
+ const Cart =({navigation})=> {
     state = {}
-    render() {
+
         return (
             <View>
                 <Text>Component Cart</Text>
+                 <TouchableOpacity onPress={() => navigation.navigate('Screen_Detail')}>
+
+                    <Text> go to Detail</Text>
+                </TouchableOpacity>
             </View>
         );
-    }
 }
+export default Cart

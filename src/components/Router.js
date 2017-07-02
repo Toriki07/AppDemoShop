@@ -16,10 +16,11 @@ import Shop from './Main/Shop/Shop';
 import Menu from './Main/Menu';
 import Cart from './Main/Shop/Cart/Cart';
 import Home from './Main/Shop/Home/Home';
-import Search from './Main/Shop/Search/Search';
+import SearchNavigation from './Main/Shop/Search/SearchNavigation';
 import Contact from './Main/Shop/Contact/Contact';
-import ListProduct from './Main/Shop/listproduct/ListProduct';
-import ProductDetail from './Main/Shop/productdetail/ProductDetail';
+
+import HomeStack from './Main/Shop/Home/HomeNavigation';
+import CartNavigation from './Main/Shop/Cart/CartNavigation';
 
 //import media
 import homeIconS from '../media/appIcon/home.png';
@@ -35,77 +36,32 @@ import contactIcon from '../media/appIcon/contact0.png';
 
 
 //dieu huong cho mang hinh trong component MENU
-export const MenuStack = DrawerNavigator({
-    Screen_Menu: {
-        screen: Menu,
+// export const MenuStack = DrawerNavigator({
+//     Screen_Menu: {
+//         screen: Menu,
         
-    },
-    Screen_Authentication: {
-        screen: Authentication,
-        navigationOptions: {
-            title: 'Authentication'
-        }
-    },
-    Screen_ChangeInfo: {
-        screen: ChangeInfo,
-        navigationOptions: {
-            title: 'Change Info'
-        }
-    },
-    Screen_OrderHistory: {
-        screen: OrderHistory,
-        navigationOptions: {
-            title: 'Order History'
-        }
-    }
-});
+//     },
+//     Screen_Authentication: {
+//         screen: Authentication,
+//         navigationOptions: {
+//             title: 'Authentication'
+//         }
+//     },
+//     Screen_ChangeInfo: {
+//         screen: ChangeInfo,
+//         navigationOptions: {
+//             title: 'Change Info'
+//         }
+//     },
+//     Screen_OrderHistory: {
+//         screen: OrderHistory,
+//         navigationOptions: {
+//             title: 'Order History'
+//         }
+//     }
+// });
 //- - - - - -- - - - - - - - 
-export const ShopStack = StackNavigator({
-    Screen_Shop:{
-        screen: Shop,
-        navigationOptions:{
-            title: 'Shop'
-        }
-    }
-});
-//dieu huong cho manh hinh click to detail products
-export const HomeStack = StackNavigator({
-    Screen_Home:{
-        screen: Home,
-        navigationOptions:{
-            title: 'Home'
-        }
-    },
-     Screen_Detail: {
-    screen: ProductDetail,
-    navigationOptions: {
-      title: 'Chi tiet'
-    }
-  },
-  Screen_List: {
-    screen: ListProduct,
-    navigationOptions: {
-      title: 'Danh sach SP'
-    }
-  },
-});
-//__ - - - - - - - - - - - - - - -
-export const CartStack = StackNavigator({
-    Screen_Cart:{
-        screen: Cart,
-        navigationOptions:{
-            title: 'Cart'
-        }
-    }
-});
-export const SearchStack = StackNavigator({
-    Screen_Search:{
-        screen: Search,
-        navigationOptions:{
-            title: 'Search'
-        }
-    }
-});
+ 
 export const ContactStack = StackNavigator({
     Screen_Contact:{
         screen: Contact,
@@ -129,7 +85,7 @@ export const ShopTabs = TabNavigator({
     }
   },
   Cart: {
-    screen: CartStack,
+    screen: CartNavigation,
     navigationOptions: {
       tabBarLabel: 'Cart',
       tabBarIcon: ({ tintColor }) => (
@@ -140,8 +96,8 @@ export const ShopTabs = TabNavigator({
             ),
     }
   },
-  SearchStack: {
-    screen: SearchStack,
+  Search: {
+    screen: SearchNavigation,
     navigationOptions: {
       tabBarLabel: 'Search',
       tabBarIcon: ({ tintColor }) => (

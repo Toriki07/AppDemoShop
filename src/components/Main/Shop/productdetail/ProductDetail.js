@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
     Text,
     View,
+    TouchableOpacity,
 } from 'react-native';
 
 export default class ProductDetail extends Component {
@@ -10,6 +11,7 @@ export default class ProductDetail extends Component {
         return (
             <View>
                 <Text>Component ProductDetail</Text>
+                
             </View>
         );
     }
