@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions, FlatList, TouchableOpacity } from 'react-native';
 
 import sp1 from '../../../../media/temp/sp1.jpeg';
 import sp2 from '../../../../media/temp/sp2.jpeg';
@@ -7,15 +7,16 @@ import sp3 from '../../../../media/temp/sp3.jpeg';
 import sp4 from '../../../../media/temp/sp4.jpeg';
 
 export default class TopProduct extends Component {
-    state = {}
     render() {
-        const { 
-            container, 
-            titleContainer, 
-            title, 
-            body, 
-            productContainer, 
-            productImage, 
+        const { topProducts } = this.props;
+        const url = 'http://localhost/api/images/product/'
+        const {
+            container,
+            titleContainer,
+            title,
+            body,
+            productContainer,
+            productImage,
             productName,
             productPrice,
         } = styles;
@@ -25,7 +26,19 @@ export default class TopProduct extends Component {
                     <Text style={title}>TOP PRODUCT</Text>
                 </View>
                 <View style={body}>
-                    <View style={productContainer}>
+                    <FlatList
+                        data={topProducts}
+                        renderItem={({ item }) =>
+                            <TouchableOpacity style={productContainer} onPress={() => this.props.navigation.navigate('Screen_Detail')}>
+                            <Image style={productImage} source={{ uri: `${url}${item.images[0]}` }} />
+                            <Text style={productName}> {item.name.toUpperCase()} </Text>
+                            <Text style={productPrice}>${item.price}</Text>
+                        </TouchableOpacity>
+                        }
+                    horizontal = {false}
+                     numColumns = {2}
+                    />
+                    {/*<View style={productContainer}>
                         <Image style={productImage} source={sp1} />
                        <Text style= {productName}> PRODUCT NAME </Text>
                         <Text style = {productPrice}>$400</Text>
@@ -45,7 +58,7 @@ export default class TopProduct extends Component {
                         <Image style={productImage} source={sp4} />
                         <Text style= {productName}> PRODUCT NAME </Text>
                         <Text style = {productPrice}>$250</Text>
-                    </View>
+                    </View>*/}
                 </View>
             </View>
         );
@@ -53,7 +66,7 @@ export default class TopProduct extends Component {
 }
 
 const { width } = Dimensions.get('window');
-const productWidth = (width - 60) / 2;
+const productWidth = (width - 80) / 2;
 const productImageHeight = (productWidth / 361) * 452;
 
 const styles = StyleSheet.create({
@@ -84,20 +97,20 @@ const styles = StyleSheet.create({
         shadowColor: '#2E272B',
         shadowOffset: { width: 0, height: 3 },
         shadowOpacity: 0.2,
-        
+        paddingLeft: 10
     },
     productImage: {
         width: productWidth,
         height: productImageHeight,
     },
-    productName:{
+    productName: {
         marginVertical: 5,
         paddingLeft: 10,
         fontFamily: 'Avenir',
         color: '#D3D3CF',
         fontWeight: '500',
     },
-    productPrice:{
+    productPrice: {
         marginBottom: 5,
         paddingLeft: 10,
         fontFamily: 'Avenir',

@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { 
     View, Text, TouchableOpacity, ScrollView, 
@@ -10,15 +9,19 @@ import sp1 from '../../.././../media/temp/sp1.jpeg';
 function toTitleCase(str) {
     return str.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
 }
- const Cart =({navigation})=> {
-    state = {}
+
+class Cart extends Component {
+    gotoDetail() {
+        const { navigator } = this.props;
+        navigator.push({ name: 'PRODUCT_DETAIL' });
+    }
+    render() {
         const { main, checkoutButton, checkoutTitle, wrapper,
         product, mainRight, productController,
             txtName, txtPrice, productImage, numberOfProduct, 
             txtShowDetail, showDetailContainer } = styles;
         return (
-            <View>
-                 <View style={wrapper}>
+            <View style={wrapper}>
                 <ScrollView style={main}>
                     <View style={product}>
                         <Image source={sp1} style={productImage} />
@@ -137,9 +140,8 @@ function toTitleCase(str) {
                     <Text style={checkoutTitle}>TOTAL {1000}$ CHECKOUT NOW</Text>
                 </TouchableOpacity>
             </View>
-
-            </View>
         );
+    }
 }
 
 const { width } = Dimensions.get('window');
@@ -225,4 +227,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Cart
+export default Cart;

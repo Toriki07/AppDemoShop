@@ -20,8 +20,8 @@ export default class Home extends Component {
     }
     componentDidMount() {
         fetch('http://localhost//api/').then(res => res.json()).then(resJSON => {
-            const { type } = resJSON;
-            this.setState({ types: type });
+            const { type, product } = resJSON;
+            this.setState({ types: type, topProducts: product });
         });
     }
     static navigationOptions = ({ navigation }) => ({
@@ -31,12 +31,12 @@ export default class Home extends Component {
         )
     })
     render() {
-        const { types } = this.state;
+        const { types, topProducts } = this.state;
         return (
             <ScrollView style={{ flex: 1 }}>
                 <Collection />
                 <Category navigation={this.props.navigation} types={types} />
-                <TopProduct />
+                <TopProduct navigation={this.props.navigation} topProducts={topProducts} />
             </ScrollView>
         );
     }

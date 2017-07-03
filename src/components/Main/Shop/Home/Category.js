@@ -12,24 +12,24 @@ const { width, height } = Dimensions.get('window');
 const url = 'http://localhost/api/images/type/';
 
 export default class Category extends Component {
-    render(){
-         const { types } = this.props;
-    const { wrapper, textStyle, imageStyle, cateTitle } = styles;
-    return (
-        <View style={wrapper}>
-            <View style={{ flex: 1, justifyContent: 'center', padding: 5 }}>
-                <Text style={textStyle}> SPRING COLLECTION</Text>
-            </View>
-            <View style={{ flex: 4, justifyContent: 'flex-end' }} >
-                <Swiper showPagination width={imageWidth} height={imageHeight}>
-                    { types.map(e => (
-                         <TouchableOpacity onPress={() => this.props.navigation.navigate('Screen_List')} key = {e.id}>
-                        <Image source={{uri: `${url}${e.image}`}} style={imageStyle}>
-                            <Text style={cateTitle}>{e.name}</Text>
-                        </Image>
-                    </TouchableOpacity>
-                    ))}
-                    {/*<TouchableOpacity onPress={() => navigation.navigate('Screen_List') }>
+    render() {
+        const { types } = this.props;
+        const { wrapper, textStyle, imageStyle, cateTitle } = styles;
+        return (
+            <View style={wrapper}>
+                <View style={{ flex: 1, justifyContent: 'center', padding: 5 }}>
+                    <Text style={textStyle}> SPRING COLLECTION</Text>
+                </View>
+                <View style={{ flex: 4, justifyContent: 'flex-end' }} >
+                    <Swiper showPagination width={imageWidth} height={imageHeight}>
+                        {types.map(e => (
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Screen_List')} key={e.id}>
+                                <Image source={{ uri: `${url}${e.image}` }} style={imageStyle}>
+                                    <Text style={cateTitle}>{e.name}</Text>
+                                </Image>
+                            </TouchableOpacity>
+                        ))}
+                        {/*<TouchableOpacity onPress={() => navigation.navigate('Screen_List') }>
                         <Image source={littleIcon} style={imageStyle}>
                             <Text style={cateTitle}>Maxi Dress</Text>
                         </Image>
@@ -46,10 +46,10 @@ export default class Category extends Component {
                             <Text style={cateTitle}>Maxi Dress</Text>
                         </Image>
                     </TouchableOpacity>*/}
-                </Swiper>
+                    </Swiper>
+                </View>
             </View>
-        </View>
-    );
+        );
     }
 }
 //<Swiper showPagination width = {imageWidth}> set width
