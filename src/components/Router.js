@@ -12,7 +12,7 @@ import Authentication from './Authentication/Authentication';
 import ChangeInfo from './ChangeInfo/ChangeInfo';
 import Main from './Main/Main';
 import OrderHistory from './OrderHistory/OrderHistory';
-import Shop from './Main/Shop/Shop';
+//import Shop from './Main/Shop/Shop';
 import Menu from './Main/Menu';
 import Cart from './Main/Shop/Cart/Cart';
 import Home from './Main/Shop/Home/Home';

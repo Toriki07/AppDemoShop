@@ -5,7 +5,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import Shop from './Shop/Shop';
+//import Shop from './Shop/Shop';
 import Menu from './Menu';
 import {SideMenu} from '../Router';
 //const { height } = Dimensions.get('window');

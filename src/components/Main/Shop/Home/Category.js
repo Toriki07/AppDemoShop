@@ -9,9 +9,11 @@ import partyIcon from '../../../../media/temp/party.jpg';
 
 //get width, height of decive to use
 const { width, height } = Dimensions.get('window');
+const url = 'http://localhost/api/images/type/';
 
-const Category = ({ navigation }) => {
-    state = {}
+export default class Category extends Component {
+    render(){
+         const { types } = this.props;
     const { wrapper, textStyle, imageStyle, cateTitle } = styles;
     return (
         <View style={wrapper}>
@@ -20,7 +22,14 @@ const Category = ({ navigation }) => {
             </View>
             <View style={{ flex: 4, justifyContent: 'flex-end' }} >
                 <Swiper showPagination width={imageWidth} height={imageHeight}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Screen_List') }>
+                    { types.map(e => (
+                         <TouchableOpacity onPress={() => this.props.navigation.navigate('Screen_List')} key = {e.id}>
+                        <Image source={{uri: `${url}${e.image}`}} style={imageStyle}>
+                            <Text style={cateTitle}>{e.name}</Text>
+                        </Image>
+                    </TouchableOpacity>
+                    ))}
+                    {/*<TouchableOpacity onPress={() => navigation.navigate('Screen_List') }>
                         <Image source={littleIcon} style={imageStyle}>
                             <Text style={cateTitle}>Maxi Dress</Text>
                         </Image>
@@ -36,14 +45,13 @@ const Category = ({ navigation }) => {
                         <Image source={partyIcon} style={imageStyle}>
                             <Text style={cateTitle}>Maxi Dress</Text>
                         </Image>
-                    </TouchableOpacity>
+                    </TouchableOpacity>*/}
                 </Swiper>
             </View>
         </View>
     );
-
+    }
 }
-export default Category;
 //<Swiper showPagination width = {imageWidth}> set width
 const imageWidth = width - 40;
 const imageHeight = imageWidth / 2;
