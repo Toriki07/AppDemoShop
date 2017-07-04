@@ -7,6 +7,10 @@ import sp3 from '../../../../media/temp/sp3.jpeg';
 import sp4 from '../../../../media/temp/sp4.jpeg';
 
 export default class TopProduct extends Component {
+    gotoDetail(product){
+        const {navigation} = this.props;
+        navigation.navigate('Screen_Detail', product)
+    }
     render() {
         const { topProducts } = this.props;
         const url = 'http://localhost/api/images/product/'
@@ -27,9 +31,10 @@ export default class TopProduct extends Component {
                 </View>
                 <View style={body}>
                     <FlatList
+                        keyExtractor = {item => item.id}
                         data={topProducts}
                         renderItem={({ item }) =>
-                            <TouchableOpacity style={productContainer} onPress={() => this.props.navigation.navigate('Screen_Detail')}>
+                            <TouchableOpacity style={productContainer} onPress={() => this.gotoDetail(item)}>
                             <Image style={productImage} source={{ uri: `${url}${item.images[0]}` }} />
                             <Text style={productName}> {item.name.toUpperCase()} </Text>
                             <Text style={productPrice}>${item.price}</Text>

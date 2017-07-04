@@ -15,7 +15,9 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            types: []
+            types: [],
+            topProducts: [],
+            cartArray:[],
         };
     }
     componentDidMount() {
