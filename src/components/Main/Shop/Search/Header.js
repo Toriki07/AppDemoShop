@@ -17,7 +17,7 @@ const Header = ({navigation}) =>{
                         }
                     >
                         <Image source={icMenu} style={iconStyle} />
-                    </TouchableOpacity>
+                    </TouchableOpacity> 
                     <Text style={titleStyle}> LifePlus Demo </Text>
                     <Image source={icLogo} style={iconStyle} />
                 </View>

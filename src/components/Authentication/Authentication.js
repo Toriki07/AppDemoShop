@@ -8,10 +8,17 @@ import {
   TextInput,
 } from 'react-native';
 
+import register from '../../api/register';
+
 import icBack from '../../media/appIcon/back_white.png';
 import icLogo from '../../media/appIcon/ic_logo.png';
 
 export default class Authentication extends Component {
+
+  componentDidMount(){
+    register('lrphuong', 'Phuong le', '123')
+    .then(res => console.log(res));
+  }
   render() {
     const {
       row1, iconStyle, titleStyle,

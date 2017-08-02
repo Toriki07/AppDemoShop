@@ -33,7 +33,7 @@ export default class Home extends Component {
         )
     })
     render() {
-        const { types, topProducts } = this.state;
+        const { types, topProducts, cartArray } = this.state;
         return (
             <ScrollView style={{ flex: 1 }}>
                 <Collection />
