@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native';
-//import signIn from '../../api/signIn';
+import signIn from '../../api/sigIn';
 //import global from '../global';
-
-//import saveToken from '../../api/saveToken';
+import getToken from '../../api/GetToken';
+import saveToken from '../../api/SaveToken';
 
 export default class SignIn extends Component {
     constructor(props) {
@@ -13,13 +13,15 @@ export default class SignIn extends Component {
             password: ''
         };
     }
-
+    componentDidMount(){
+        getToken()
+        .then(a => console.log('TOKEN:::' + a));
+    }
     onSignIn() {
         const { email, password } = this.state;
         signIn(email, password)
             .then(res => {
-                global.onSignIn(res.user);
-                this.props.goBackToMain();
+                //console.log(res);
                 saveToken(res.token);
             })
             .catch(err => console.log(err));

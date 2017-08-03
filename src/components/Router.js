@@ -164,11 +164,11 @@ export const SideMenu = DrawerNavigator(
     ChangeInfo: { screen: ChangeInfo},
     OrderHistory: { screen: OrderHistory},
   },
-//   {
-//     drawerWidth: 200,
-//     drawerPosition: 'left',
-//     contentComponent: props => <ScrollView><MenuStack  /></ScrollView>
-//   }
+  {
+    drawerWidth: 200,
+    drawerPosition: 'left',
+     //contentComponent: <Menu navigation={this.props.navigation}/>
+  }
 );
 const styles = {
     icon: {

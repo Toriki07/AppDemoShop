@@ -8,7 +8,6 @@ import {
   TextInput,
 } from 'react-native';
 
-import register from '../../api/register';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
@@ -32,6 +31,10 @@ export default class Authentication extends Component {
     signUp() {
         this.setState({ isSignIn: false });
     }
+    goBackToMain() {
+        const { navigation } = this.props;
+        navigation.goBack();
+    }
   render() {
     const {
       row1, iconStyle, titleStyle,
@@ -41,7 +44,7 @@ export default class Authentication extends Component {
   } = styles;
 
       const { isSignIn } = this.state;
-        const mainJSX = isSignIn ? <SignIn/> : <SignUp />;
+        const mainJSX = isSignIn ?<SignIn goBackToMain={this.goBackToMain.bind(this)} /> : <SignUp gotoSignIn={this.gotoSignIn.bind(this)} />;
     return (
       <View style={container}>
         <View style={row1}>

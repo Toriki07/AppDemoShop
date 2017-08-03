@@ -30,10 +30,17 @@ import {
 
 //import Shop from './Shop/Shop';
 //import Menu from './Menu';
+import checkLogin from '../api/CheckLogin';
 import {SideMenu} from './Router';
 //const { height } = Dimensions.get('window');
 
+const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjEyMyIsImlhdCI6MTUwMTczMjY1MiwiZXhwaXJlIjoxNTAxOTA1NDUyfQ.i_hpD9O8cB5m0xpRGx3eWqzIEkgzvcWw3IWjlzeSck4';
 export default class App extends Component {
+  componentDidMount(){
+    checkLogin(token)
+    .then(res => console.log('CHECK LOGIN', res))
+    .catch(err => console.log('LOI CHECK LOGIN', err));
+  }
   render() {
     return (
      <SideMenu />
