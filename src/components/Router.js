@@ -19,7 +19,7 @@ import Home from './Main/Shop/Home/Home';
 import SearchNavigation from './Main/Shop/Search/SearchNavigation';
 import Contact from './Main/Shop/Contact/Contact';
 
-import HomeStack from './Main/Shop/Home/HomeNavigation';
+//import HomeStack from './Main/Shop/Home/HomeNavigation';
 import CartNavigation from './Main/Shop/Cart/CartNavigation';
 
 //import media
@@ -73,7 +73,7 @@ export const ContactStack = StackNavigator({
 //  dieu huong cho TabBar trong mac dinh man hinh Home chinh
 export const ShopTabs = TabNavigator({
   Home: {
-    screen: HomeStack,
+    screen: Home,
     navigationOptions: {
       tabBarLabel: 'Home',
       tabBarIcon: ({ tintColor }) => (
@@ -138,36 +138,25 @@ export const ShopTabs = TabNavigator({
 );
 // dieuf huong cho viec mo mo Mune trong manh hinh chinh cua MENU
 //ham menu ma cac mang hinh chuyen dong qua lai trong MENU
-// export const SideMenu = DrawerNavigator(
-//   {
-//     Tabbar: {
-//       screen: ShopTabs
-//     },
-//   },
-//   {
-//     drawerWidth: 200,
-//     drawerPosition: 'left',
-//     contentComponent: props => <ScrollView><MenuStack  /></ScrollView>
-//   }
-// );
-// const styles = {
-//     icon: {
-//         width: 32,
-//         height: 32
-//     }
-// }
-// - - - - - - - - - - - - - - - - - - -
-export const SideMenu = DrawerNavigator(
+export const MainStack = StackNavigator(
   {
     Tabbar: {screen: ShopTabs},
     Authentication: {screen: Authentication},
     ChangeInfo: { screen: ChangeInfo},
     OrderHistory: { screen: OrderHistory},
+  }
+);
+
+// - - - - - - - - - - - - - - - - - - -
+export const SideMenu = DrawerNavigator(
+  {
+    MainStack: {screen: MainStack},
+   
   },
   {
     drawerWidth: 200,
     drawerPosition: 'left',
-     //contentComponent: <Menu navigation={this.props.navigation}/>
+    contentComponent: props => <Menu {...props}/>
   }
 );
 const styles = {
