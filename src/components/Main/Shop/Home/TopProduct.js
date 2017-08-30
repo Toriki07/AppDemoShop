@@ -92,8 +92,8 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     body: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
+        
+        justifyContent: 'center',
         flexWrap: 'wrap'
     },
     productContainer: {
@@ -102,11 +102,12 @@ const styles = StyleSheet.create({
         shadowColor: '#2E272B',
         shadowOffset: { width: 0, height: 3 },
         shadowOpacity: 0.2,
-        paddingLeft: 10
+         marginLeft: 20
     },
     productImage: {
         width: productWidth,
         height: productImageHeight,
+       
     },
     productName: {
         marginVertical: 5,
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
     },
     productPrice: {
         marginBottom: 5,
-        paddingLeft: 10,
+        paddingLeft: (width - 2*productWidth)/3,
         fontFamily: 'Avenir',
         color: '#662F90',
     },
