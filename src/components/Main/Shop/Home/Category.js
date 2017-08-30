@@ -9,10 +9,10 @@ import partyIcon from '../../../../media/temp/party.jpg';
 
 //get width, height of decive to use
 const { width, height } = Dimensions.get('window');
-const url = 'http://localhost/api/images/type/';
 
 export default class Category extends Component {
     render() {
+        const url = 'http://localhost/api/images/type/';
         const { types } = this.props;
         const { wrapper, textStyle, imageStyle, cateTitle } = styles;
         return (

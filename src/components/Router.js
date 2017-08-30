@@ -87,6 +87,7 @@ export const ShopTabs = TabNavigator({
   Cart: {
     screen: CartNavigation,
     navigationOptions: {
+      header: null,
       tabBarLabel: 'Cart',
       tabBarIcon: ({ tintColor }) => (
                 <Image
@@ -112,6 +113,7 @@ export const ShopTabs = TabNavigator({
   Contact: {
     screen: ContactStack,
     navigationOptions: {
+       header: null,
       tabBarLabel: 'Contact',
       tabBarIcon: ({ tintColor }) => (
                 <Image
@@ -141,10 +143,11 @@ export const ShopTabs = TabNavigator({
 export const MainStack = StackNavigator(
   {
     Tabbar: {screen: ShopTabs},
+    
     Authentication: {screen: Authentication},
     ChangeInfo: { screen: ChangeInfo},
     OrderHistory: { screen: OrderHistory},
-  }
+  },
 );
 
 // - - - - - - - - - - - - - - - - - - -
